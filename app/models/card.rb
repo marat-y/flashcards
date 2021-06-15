@@ -12,7 +12,6 @@ class Card < ApplicationRecord
   validates :original_text, :translated_text,
             :review_time, :deck_id,
             presence: true
-  validates :leitner_level, numericality: { minimum: 0 }
 
   scope :testable, -> { where('review_time <= ?', Time.now) }
 end

@@ -13,8 +13,7 @@ class Card
 
       def defaults
         {
-          leitner_level: Leitner::DEFAULT_LEVEL,
-          review_time: Time.now + Leitner.review_period_for_level(Leitner::DEFAULT_LEVEL)
+          review_time: Time.now
         }
       end
     end

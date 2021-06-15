@@ -68,3 +68,4 @@ en:
   wrong: Wrooooooooong!
   language: Language
   language_name: English
+  try_again_later: "Wrong, '%{original}' means '%{translation}', you'll review this again in a while"

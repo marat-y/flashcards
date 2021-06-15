@@ -1,4 +1,4 @@
-class TestDecorator < Draper::Decorator
+class TestFormDecorator < Draper::Decorator
   delegate_all
 
   def picture

@@ -8,6 +8,7 @@
     .col-md-5
       .form-group
         = f.input :translated_text, label: Card.human_attribute_name(:translated_text)
+        = f.input :response_time, as: :hidden, input_html: { value: 0 }
     .col-md-2
       br
       = f.submit t(:submit), class: 'btn btn-default'

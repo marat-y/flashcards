@@ -19,7 +19,7 @@ RSpec.describe TestsController, type: :controller do
         get :new
       end
       it 'assigns @test' do
-        expect(assigns(:test)).to be_a(Test)
+        expect(assigns(:test)).to be_a(TestForm)
       end
       it 'renders new' do
         expect(response).to render_template(:new)
@@ -38,13 +38,13 @@ RSpec.describe TestsController, type: :controller do
 
       it 'moves the card review time' do
         expect do
-          post :create, params: { test: correct_attrs }
+          post :create, params: { test_form: correct_attrs }
           card.reload
         end.to change(card, :review_time)
       end
 
       it 'redirects to root' do
-        post :create, params: { test: correct_attrs }
+        post :create, params: { test_form: correct_attrs }
         expect(response).to redirect_to(root_path)
       end
     end
@@ -53,12 +53,12 @@ RSpec.describe TestsController, type: :controller do
       let(:incorrect_attrs) { { card_id: card.id, translated_text: 'incorrect text' } }
 
       it 'doesnt change card' do
-        post :create, params: { test: incorrect_attrs }
+        post :create, params: { test_form: incorrect_attrs }
         expect(card.review_time.to_i).to eq(card.reload.review_time.to_i)
       end
 
       it 'renders new' do
-        post :create, params: { test: incorrect_attrs }
+        post :create, params: { test_form: incorrect_attrs }
         expect(response).to render_template(:new)
       end
     end

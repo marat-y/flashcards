@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_073752) do
+ActiveRecord::Schema.define(version: 2020_09_08_153325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,9 @@ ActiveRecord::Schema.define(version: 2020_09_05_073752) do
     t.string "picture"
     t.bigint "deck_id"
     t.integer "attempts", default: 0
-    t.integer "leitner_level", default: 0
+    t.float "e_factor", default: 2.5, null: false
+    t.integer "repetitions_count", default: 0, null: false
+    t.integer "response_quality", default: 0, null: false
     t.index ["deck_id"], name: "index_cards_on_deck_id"
   end
 

@@ -7,7 +7,7 @@ class FindTestableCard
   def call
     scoped = filter_by_deck(initial_scope)
     scoped = filter_by_card(scoped)
-    scoped.first
+    scoped.order(:review_time).first
   end
 
   private

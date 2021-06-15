@@ -28,4 +28,13 @@ describe 'taking a test', type: :feature do
     click_button I18n.t(:submit)
     expect(page).to have_content I18n.t(:wrong)
   end
+
+  scenario 'Providing incorrect answer max allowed times' do
+    visit '/tests/new'
+    SuperMemo2::MAX_ATTEMPTS.times do
+      fill_in Card.human_attribute_name(:translated_text), with: "not #{card.translated_text}"
+      click_button I18n.t(:submit)
+    end
+    expect(page).to have_content I18n.t(:try_again_later, original: card.original_text, translation: card.translated_text)
+  end
 end

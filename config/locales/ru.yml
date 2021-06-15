@@ -69,3 +69,4 @@ ru:
   wrong: 'Неправильно'
   language: Язык
   language_name: Русский
+  try_again_later: "Неправильно, '%{original}' означает '%{translation}', позже тест будет снова запущен"
